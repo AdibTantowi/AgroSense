@@ -15,7 +15,7 @@
 
 <p align="center">
   <a href="https://agrosensepens.netlify.app/">Live Dashboard</a> ·
-  <a href="#repository-structure">Structure</a> ·
+  <a href="#system-architecture">Architecture</a> ·
   <a href="#results">Results</a> ·
   <a href="#getting-started">Getting Started</a>
 </p>
@@ -45,36 +45,9 @@ Proyek ini dikerjakan sebagai Proyek Akhir D4 Teknik Elektronika, Politeknik Ele
 
 ## System Architecture
 
-```mermaid
-flowchart LR
-    subgraph Device["ESP32-S3 Unit"]
-        NPK[NPK Sensor] --> MUX[RS485 Multiplexer]
-        PH[pH Sensor] --> MUX
-        SM[Soil Moisture] --> MCU[ESP32-S3]
-        TEMP[DS18B20] --> MCU
-        GPS[NEO-6M GPS] --> MCU
-        MUX --> MCU
-        MCU --> KNN[Weighted KNN + Reject Option]
-        KNN --> OLED[OLED Display]
-    end
-    MCU -- WiFi --> FB[(Firebase Realtime DB)]
-    FB --> WEB[Web Dashboard]
-```
-
----
-
-## Repository Structure
-
-```
-agrosense/
-├── File Program/         # Firmware ESP32-S3 (Arduino)
-├── File Scematic/         # Skematik rangkaian & pin mapping
-├── Model Training/         # Notebook Colab — penentuan nilai K (Elbow Method), evaluasi KNN
-├── assets/                  # Banner, dokumentasi visual
-└── README.md
-```
-
-> Dashboard web dikembangkan dan di-deploy terpisah — akses langsung di [agrosensepens.netlify.app](https://agrosensepens.netlify.app/).
+<p align="center">
+  <img src="assets/AS.JPEG" alt="AgroSense System Architecture" width="100%">
+</p>
 
 ---
 
@@ -112,20 +85,28 @@ Rekomendasi yang dihasilkan sistem mencerminkan kemiripan profil tanah terhadap 
 ## Getting Started
 
 ### Firmware
-```bash
-# Buka folder "File Program" di Arduino IDE
-# Pilih board: ESP32S3 Dev Module
-# Sesuaikan kredensial WiFi & Firebase pada file konfigurasi
-# Upload ke perangkat
-```
+
+<p align="center">
+  <img src="assets/firmware.png" alt="Firmware" width="100%">
+</p>
+<p align="center"><a href="./File Program">File Program »</a></p>
 
 ### Schematic
-Skematik rangkaian dan pemetaan pin tersedia di folder `File Scematic/`.
+
+<p align="center">
+  <img src="assets/schematic.png" alt="Schematic" width="100%">
+</p>
+<p align="center"><a href="./File Scematic">File Scematic »</a></p>
 
 ### Model Training
-Proses penentuan nilai K optimal dan evaluasi algoritma KNN (cross-validation, confusion matrix, ROC-AUC) didokumentasikan pada notebook di folder `Model Training/`.
+
+<p align="center">
+  <img src="assets/training.png" alt="Model Training" width="100%">
+</p>
+<p align="center"><a href="./Model Training">Model Training »</a></p>
 
 ### Web Dashboard
+
 Dashboard sudah live dan dapat diakses langsung di [agrosensepens.netlify.app](https://agrosensepens.netlify.app/) — tidak memerlukan instalasi lokal.
 
 ---

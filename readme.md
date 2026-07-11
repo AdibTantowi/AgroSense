@@ -89,6 +89,11 @@ $$w_i = \frac{1}{d_i^2}$$
 
 Seluruh fitur dinormalisasi terlebih dahulu menggunakan **Min-Max Scaling** sebelum perhitungan jarak, agar parameter dengan rentang nilai besar (seperti NPK dalam mg/kg) tidak mendominasi parameter dengan rentang kecil (seperti pH).
 
+<p align="center">
+  <img src="assets/knn-visualization.png" alt="Visualisasi Algoritma KNN AgroSense" width="100%">
+</p>
+<p align="center"><sub>Visualisasi klasterisasi 5 kelas tanaman berdasarkan Nitrogen dan pH, serta proses pemilihan K=15 tetangga terdekat lewat Euclidean distance dan weighted voting</sub></p>
+
 
 
 <p align="center">

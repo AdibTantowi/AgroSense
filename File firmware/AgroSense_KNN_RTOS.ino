@@ -14,10 +14,10 @@
 #include "addons/RTDBHelper.h"
 //
 // Firebase configuration
-#define API_KEY "AIzaSyBZyMfIM95UUxAgNRfYqycw58hU20wIXo0"
-#define DATABASE_URL "https://agrosense-npk-default-rtdb.asia-southeast1.firebasedatabase.app/"
-#define USER_EMAIL "aaktru089@gmail.com" 
-#define USER_PASSWORD "adibtantowi16"
+#define API_KEY "LIHAT DI FIREBASE"
+#define DATABASE_URL "SALIN PADA RULES"
+#define USER_EMAIL "EMAIL PADA FIREBASE" 
+#define USER_PASSWORD "ISI PASWORD YANG ANDA SETTING"
 
 // Firebase objects
 FirebaseData fbdo;

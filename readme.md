@@ -167,6 +167,12 @@ Evaluasi difokuskan pada dua hal: menentukan nilai K yang paling optimal, dan me
 
 <p align="center"><a href="./Model Training">Notebook Evaluasi »</a></p>
 
+### Dataset
+
+600 data pengukuran lapangan dari lima kelas tanaman (masing-masing 120 data), digunakan sebagai data latih algoritma KNN.
+
+<p align="center"><a href="./dataset.csv">dataset.csv »</a></p>
+
 ### Web Dashboard
 
 Dashboard sudah live dan dapat diakses langsung di [agrosensepens.netlify.app](https://agrosensepens.netlify.app/) — tidak memerlukan instalasi lokal.

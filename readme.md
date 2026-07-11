@@ -46,7 +46,7 @@ Proyek ini dikerjakan sebagai Proyek Akhir D4 Teknik Elektronika, Politeknik Ele
 ## System Architecture
 
 <p align="center">
-  <img src="assets/AS.JPEG" alt="AgroSense System Architecture" width="100%">
+  <img src="assets/AS.jpeg" alt="AgroSense System Architecture" width="100%">
 </p>
 
 ---

@@ -94,7 +94,9 @@ Seluruh fitur dinormalisasi terlebih dahulu menggunakan **Min-Max Scaling** sebe
 </p>
 <p align="center"><sub>Visualisasi klasterisasi 5 kelas tanaman berdasarkan Nitrogen dan pH, serta proses pemilihan K=15 tetangga terdekat lewat Euclidean distance dan weighted voting</sub></p>
 
+---
 
+## System Architecture
 
 <p align="center">
   <img src="assets/AS.jpeg" alt="AgroSense System Architecture" width="100%">

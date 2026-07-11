@@ -142,7 +142,7 @@ Rekomendasi yang dihasilkan sistem mencerminkan kemiripan profil tanah terhadap 
 <p align="center">
   <img src="assets/firmware.png" alt="Firmware" width="100%">
 </p>
-<p align="center"><a href="./File Program">File Program »</a></p>
+<p align="center"><a href="./File firmware">File firmware »</a></p>
 
 ### Schematic
 

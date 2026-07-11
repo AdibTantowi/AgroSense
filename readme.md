@@ -171,7 +171,20 @@ Evaluasi difokuskan pada dua hal: menentukan nilai K yang paling optimal, dan me
 
 600 data pengukuran lapangan dari lima kelas tanaman (masing-masing 120 data), digunakan sebagai data latih algoritma KNN.
 
-<p align="center"><a href="./dataset.csv">dataset.csv »</a></p>
+| Plant Name | Nitrogen | Phosphorus | Potassium | pH | Moisture | Temperature |
+|---|---|---|---|---|---|---|
+| Bawang Merah | 53.53 | 23.22 | 44.04 | 5.34 | 49.28 | 33.81 |
+| Bawang Merah | 61.88 | 26.90 | 51.02 | 5.20 | 49.28 | 33.69 |
+| Jagung | 53.75 | 23.26 | 44.12 | 6.34 | 47.71 | 35.75 |
+| Jagung | 59.74 | 25.95 | 49.22 | 6.45 | 49.28 | 35.69 |
+| Kangkung | 44.11 | 18.91 | 35.80 | 5.30 | 19.57 | 35.75 |
+| Kangkung | 44.75 | 19.28 | 36.51 | 5.20 | 20.81 | 35.75 |
+| Kol | 40.90 | 17.50 | 33.15 | 5.60 | 46.27 | 33.25 |
+| Kol | 43.90 | 18.87 | 35.66 | 5.60 | 46.27 | 33.19 |
+| Padi | 65.95 | 28.72 | 54.47 | 7.20 | 90.04 | 32.94 |
+| Padi | 68.95 | 30.13 | 57.14 | 7.20 | 82.75 | 32.88 |
+
+<p align="center"><sub>Menampilkan 10 dari 600 data — lihat data lengkap di <a href="./agrosense_data5_tambahan_2.csv">agrosense_data5_tambahan_2.csv</a></sub></p>
 
 ### Web Dashboard
 

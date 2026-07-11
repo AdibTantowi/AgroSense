@@ -139,9 +139,44 @@ Rekomendasi yang dihasilkan sistem mencerminkan kemiripan profil tanah terhadap 
 
 ### Firmware
 
-<p align="center">
-  <img src="assets/firmware.png" alt="Firmware" width="100%">
-</p>
+Firmware berjalan di ESP32-S3 dengan skema multitasking FreeRTOS — enam task berjalan paralel (pembacaan kelembapan, suhu, GPS, NPK, pH, dan update OLED) dengan mutex untuk mengamankan jalur serial RS485 yang dipakai bergantian oleh sensor NPK dan pH.
+
+**Alur pengukuran:**
+
+1. **Akuisisi & kalibrasi sensor** — nilai mentah tiap sensor dikonversi ke satuan fisis lewat regresi linear hasil kalibrasi laboratorium:
+
+$$N = 0.2141 \cdot N_{raw} + 40.688 \quad\quad P = 0.0414 \cdot P_{raw} + 15.517 \quad\quad K = 0.0784 \cdot K_{raw} + 29.932$$
+
+$$pH = 0.8914 \cdot pH_{raw} + 1.1576$$
+
+   Kelembapan tanah dipetakan dari rentang ADC kering–basah, lalu dihaluskan dengan *Exponential Moving Average* untuk meredam noise pembacaan:
+
+$$M = \frac{ADC_{dry} - ADC_{raw}}{ADC_{dry} - ADC_{wet}} \times 100 \quad\quad EMA_t = \alpha \cdot M_t + (1-\alpha) \cdot EMA_{t-1}, \ \ \alpha = 0.2$$
+
+*(M dinyatakan dalam persen kelembapan, %)*
+
+2. **Multi-sampling** — setiap parameter diukur lima kali pada titik berbeda dalam satu area, lalu dirata-ratakan sebelum masuk ke tahap klasifikasi.
+
+3. **Normalisasi Min-Max** — kelima parameter hasil rata-rata dinormalisasi terhadap rentang nilai seluruh data latih agar skalanya sebanding:
+
+$$x_{norm} = \frac{x - x_{min}}{x_{max} - x_{min}}$$
+
+4. **Klasifikasi KNN** — jarak Euclidean dihitung terhadap 600 data latih yang disimpan di flash (PROGMEM), dibaca satu per satu agar hemat RAM:
+
+$$d = \sqrt{(N_1{-}N_2)^2 + (P_1{-}P_2)^2 + (K_1{-}K_2)^2 + (pH_1{-}pH_2)^2 + (M_1{-}M_2)^2}$$
+
+   K=15 tetangga terdekat diambil, lalu diberi bobot berbanding terbalik dengan kuadrat jaraknya:
+
+$$w_i = \frac{1}{d_i^2}$$
+
+5. **Reject option & confidence score** — jika tetangga terdekat berjarak lebih dari 0.30, sistem mengeluarkan status *"Tidak Dikenali"*. Skor keyakinan akhir dihitung dari proporsi suara terbanyak, dikalikan penalti berdasarkan berapa banyak dari K tetangga yang benar-benar valid (berada dalam ambang 0.30):
+
+$$confidence = \left(\frac{\sum w_i \ \text{(kelas terpilih)}}{\sum w_i \ \text{(semua tetangga)}}\right) \times \frac{validCount}{K} \times 100$$
+
+*(confidence dinyatakan dalam persen, %)*
+
+Seluruh proses ini berjalan sepenuhnya on-device tanpa koneksi internet; hasil klasifikasi baru dikirim ke Firebase saat pengguna memilih menu upload.
+
 <p align="center"><a href="./File firmware">File firmware »</a></p>
 
 ### Schematic

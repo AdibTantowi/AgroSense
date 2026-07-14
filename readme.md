@@ -182,7 +182,7 @@ Seluruh proses ini berjalan sepenuhnya on-device tanpa koneksi internet; hasil k
 ### Schematic
 
 <p align="center">
-  <img src="assets/schematic.png" alt="Schematic" width="100%">
+  <img src="assets/scematic.jpeg" alt="Schematic" width="100%">
 </p>
 <p align="center"><a href="./assets/scematic.jpeg">File Scematic »</a></p>
 

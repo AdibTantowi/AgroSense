@@ -184,7 +184,7 @@ Seluruh proses ini berjalan sepenuhnya on-device tanpa koneksi internet; hasil k
 <p align="center">
   <img src="assets/schematic.png" alt="Schematic" width="100%">
 </p>
-<p align="center"><a href="./File Scematic">File Scematic »</a></p>
+<p align="center"><a href="./assets/scematic.jpeg">File Scematic »</a></p>
 
 ### Model Evaluation
 
